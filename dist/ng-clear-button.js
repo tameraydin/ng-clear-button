@@ -64,9 +64,9 @@
               model = attrs.ngModel;
 
             try {
-              button = angular.element(attrs.closeButtonHTML || ClearButtonDefaults.BUTTON);
+              button = angular.element(attrs.clearButtonHTML || ClearButtonDefaults.BUTTON);
             } catch (err) {
-              throw '[ng-clear-button]: Please provide a valid HTML element for close button!';
+              throw '[ng-clear-button]: Please provide a valid HTML element for clear button!';
             }
 
             function onButtonClick() {
