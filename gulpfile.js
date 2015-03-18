@@ -1,9 +1,11 @@
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var concat = require('gulp-concat');
+var minifyCSS = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var header = require('gulp-header');
+var sass = require('gulp-sass');
 var livereload = require('gulp-livereload');
 var protractor = require("gulp-protractor").protractor;
 var del = require('del');
@@ -54,8 +56,16 @@ gulp.task('jshint', function() {
     .pipe(livereload());
 });
 
+gulp.task('sass', function() {
+  return gulp.src(SOURCE.STYLES + '*.scss')
+    .pipe(sass()).on('error', handleErr)
+    .pipe(gulp.dest(PATH.DIST))
+    .pipe(livereload());
+});
+
 gulp.task('concat', function() {
   return gulp.src([
+      SOURCE.SCRIPTS + 'constants.js',
       SOURCE.SCRIPTS + 'controllers.js',
       SOURCE.SCRIPTS + 'directives.js',
       SOURCE.SCRIPTS + 'module.js'
@@ -67,6 +77,16 @@ gulp.task('concat', function() {
 gulp.task('uglify', function() {
   return gulp.src(PATH.DIST + pkg.name + '.js')
     .pipe(uglify()).on('error', handleErr)
+    .pipe(rename({
+      basename: pkg.name,
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest(PATH.DIST));
+});
+
+gulp.task('minify', function() {
+  return gulp.src(PATH.DIST + pkg.name + '.css')
+    .pipe(minifyCSS())
     .pipe(rename({
       basename: pkg.name,
       suffix: '.min'
@@ -88,6 +108,7 @@ gulp.task('watch', ['server'], function() {
     reloadPage: 'demo/index.html'
   });
   gulp.watch(SOURCE.SCRIPTS + '*.js', ['jshint']);
+  gulp.watch(SOURCE.STYLES + '*.scss', ['sass']);
 });
 
 var server;
@@ -126,8 +147,10 @@ gulp.task('test-e2e', ['server'], function() {
 
 gulp.task('build', ['clean'], function(cb) {
   runSequence(
+    'sass',
     'concat',
     'uglify',
+    'minify',
     'banner',
     'test-unit',
     'test-e2e',

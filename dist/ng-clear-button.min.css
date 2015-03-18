@@ -1,0 +1,6 @@
+/**
+ * ng-clear-button v0.1.0 (http://tamerayd.in/ng-clear-button)
+ * Copyright 2015 Tamer Aydin (http://tamerayd.in)
+ * Licensed under MIT
+ */
+.ng-clear-button__input[type=search]{-webkit-appearance:textfield}.ng-clear-button__input[type=search]::-webkit-search-cancel-button,.ng-clear-button__input[type=search]::-webkit-search-decoration{-webkit-appearance:none}.ng-clear-button__button{cursor:default}

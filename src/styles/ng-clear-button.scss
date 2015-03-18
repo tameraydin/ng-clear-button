@@ -1,0 +1,17 @@
+$module: 'ng-clear-button';
+
+.#{$module} {
+
+  &__input[type="search"] {
+    -webkit-appearance: textfield;
+  }
+
+  &__input[type="search"]::-webkit-search-decoration,
+  &__input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+  }
+
+  &__button {
+    cursor: default;
+  }
+}
