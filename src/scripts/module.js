@@ -3,6 +3,7 @@
 
   angular
     .module('ngClearButton', [
+      'ngClearButton.constants',
       'ngClearButton.controllers',
       'ngClearButton.directives'
     ]);

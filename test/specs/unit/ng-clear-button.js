@@ -27,6 +27,7 @@ describe('ngClearButton', function() {
         '<input type="search" with-clear-button />')(scope);
     }));
 
+    // TODO: add unit tests
     it('should initialize properly', function() {
       expect(true).toBe(true);
     });
