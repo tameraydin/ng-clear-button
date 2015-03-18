@@ -4,13 +4,14 @@
 
 ## Usage
 
-Install ng-clear-button via [Bower](http://bower.io):
+Install **ng-clear-button** via [Bower](http://bower.io):
 ```bash
 bower install ng-clear-button --production
 ```
 
-Include main javascript file:
+Include main files:
 ```html
+<link rel="stylesheet" href="bower_components/ng-clear-button/dist/ng-clear-button.min.css">
 <script src="bower_components/ng-clear-button/dist/ng-clear-button.min.js"></script>
 ```
 
@@ -25,6 +26,7 @@ angular
 Place ``with-clear-button`` attribute into your HTML input element:
 ```html
 <input type="search" with-clear-button />
+<!-- with an optional attribute: clear-button-html="<img src=\"custom-button.png\" />"
 ```
 
 ## Development
