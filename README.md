@@ -1,4 +1,4 @@
-# ng-clear-button [![Build Status](http://img.shields.io/travis/tameraydin/ng-clear-button/master.svg?style=flat-square)](https://travis-ci.org/tameraydin/ng-clear-button) [![Code Climate](http://img.shields.io/codeclimate/github/tameraydin/ng-clear-button.svg?style=flat-square)](https://codeclimate.com/github/tameraydin/ng-clear-button/dist/ng-clear-button.js) [![Coverage Status](https://img.shields.io/coveralls/tameraydin/ng-clear-button/master.svg?style=flat-square)](https://coveralls.io/r/tameraydin/ng-clear-button?branch=master)
+# ng-clear-button [![Build Status](http://img.shields.io/travis/tameraydin/ng-clear-button/master.svg?style=flat-square)](https://travis-ci.org/tameraydin/ng-clear-button) [![Code Climate](http://img.shields.io/codeclimate/github/tameraydin/ng-clear-button.svg?style=flat-square)](https://codeclimate.com/github/tameraydin/ng-clear-button/dist/ng-clear-button.js)
 
 [Demo](http://tamerayd.in/ng-clear-button/)
 
