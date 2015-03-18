@@ -1,0 +1,57 @@
+{
+  "name": "ng-clear-button",
+  "description": "Adds the missing clear button to input elements",
+  "version": "0.1.0",
+  "main": [
+    "dist/ng-clear-button.js",
+    "dist/ng-clear-button.css"
+  ],
+  "keywords": [
+    "angular",
+    "component",
+    "input",
+    "search",
+    "clear",
+    "button"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tameraydin/ng-clear-button.git"
+  },
+  "homepage": "http://tamerayd.in/ng-clear-button",
+  "authors": [
+    {
+      "name": "Tamer Aydin",
+      "homepage": "http://tamerayd.in"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.3.13"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "src",
+    "demo",
+    ".travis.yml",
+    ".editorconfig",
+    ".gitignore",
+    "gulpfile.js",
+    "package.json"
+  ],
+  "devDependencies": {
+    "angular-mocks": "~1.3.13"
+  },
+  "_release": "0.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.0",
+    "commit": "ec0849214c83bc2cb3add87155b9a68dd5e2e932"
+  },
+  "_source": "git://github.com/tameraydin/ng-clear-button.git",
+  "_target": "~0.1.0",
+  "_originalSource": "ng-clear-button",
+  "_direct": true
+}
