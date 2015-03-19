@@ -19,7 +19,7 @@ Include ``ngClearButton`` module as a dependency into your app:
 ```javascript
 angular
   .module('yourApp', [
-    'ngClearButton'
+    'angularClearButton'
   ]);
 ```
 

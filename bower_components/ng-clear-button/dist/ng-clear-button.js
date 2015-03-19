@@ -1,5 +1,5 @@
 /**
- * ng-clear-button v0.3.0 (http://tamerayd.in/ng-clear-button)
+ * ng-clear-button v0.4.0 (http://tamerayd.in/ng-clear-button)
  * Copyright 2015 Tamer Aydin (http://tamerayd.in)
  * Licensed under MIT
  */
@@ -7,7 +7,7 @@
   'use strict';
 
   angular
-    .module('ngClearButton.constants', [])
+    .module('angularClearButton.constants', [])
     .value('ClearButtonOptions', {
       isVisible: false,
       buttonHtml: '<span>&#10006;</span>'
@@ -29,7 +29,7 @@
   'use strict';
 
   angular
-    .module('ngClearButton.controllers', [])
+    .module('angularClearButton.controllers', [])
     .controller('ClearButtonController', [
       '$scope', '$timeout', 'ClearButtonOptions', 'ClearButtonDefaults', 'ClearButtonClassNames',
       function($scope, $timeout, ClearButtonOptions, ClearButtonDefaults, ClearButtonClassNames) {
@@ -62,9 +62,9 @@
   'use strict';
 
   angular
-    .module('ngClearButton.directives', [
-      'ngClearButton.constants',
-      'ngClearButton.controllers'
+    .module('angularClearButton.directives', [
+      'angularClearButton.constants',
+      'angularClearButton.controllers'
     ])
     .directive('withClearButton', [
       'ClearButtonOptions', 'ClearButtonClassNames',
@@ -130,10 +130,10 @@
   'use strict';
 
   angular
-    .module('ngClearButton', [
-      'ngClearButton.constants',
-      'ngClearButton.controllers',
-      'ngClearButton.directives'
+    .module('angularClearButton', [
+      'angularClearButton.constants',
+      'angularClearButton.controllers',
+      'angularClearButton.directives'
     ]);
 
 })(window, window.angular);
