@@ -5,7 +5,7 @@ angular
     'ngClearButton'
   ])
   .controller('demoMainController', function($scope) {
-    $scope.anInputModel = 'test';
+    $scope.anInputModel = 'focus on me...';
     $scope.initialized = true;
     $scope.destroy = function() {
       $scope.initialized = !$scope.initialized;

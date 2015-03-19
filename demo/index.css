@@ -9,6 +9,10 @@ body {
   font-family: sans-serif;
 }
 
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 input {
   width: 100%;
 }
@@ -17,4 +21,5 @@ input {
   margin: 0 auto;
   box-sizing: border-box;
   width: 20%;
+  position: relative;
 }

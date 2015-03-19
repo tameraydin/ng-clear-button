@@ -10,4 +10,10 @@
 .ng-clear-button__input[type="search"]::-webkit-search-decoration, .ng-clear-button__input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none; }
 .ng-clear-button__button {
+  visibility: hidden;
+  position: absolute;
+  right: 4px;
+  top: 0;
   cursor: default; }
+  .ng-clear-button__button--filled.ng-clear-button__button--focused {
+    visibility: visible; }
