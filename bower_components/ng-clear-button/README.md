@@ -26,7 +26,10 @@ angular
 Place ``with-clear-button`` attribute into your HTML input element:
 ```html
 <input type="search" with-clear-button />
-<!-- with an optional attribute: clear-button-html="<img src=\"custom-button.png\" />"
+<!-- with optional attributes:
+  clear-button-html="<img src=\"custom-button.png\" />"
+  clear-button-is-visible
+-->
 ```
 
 ## Development
