@@ -8,12 +8,17 @@
 
   angular
     .module('ngClearButton.constants', [])
+    .value('ClearButtonOptions', {
+      isVisible: false,
+      buttonHtml: '<span>&#10006;</span>'
+    })
     .constant('ClearButtonDefaults', {
-      BUTTON: '<span>&#10006;</span>'
+      BUTTON_HIDE_TIMEOUT: 100
     })
     .constant('ClearButtonClassNames', {
       INPUT: 'ng-clear-button__input',
       BUTTON: 'ng-clear-button__button',
+      VISIBLE_BUTTON: 'ng-clear-button__button--visible',
       FILLED_INPUT_BUTTON: 'ng-clear-button__button--filled',
       FOCUSED_INPUT_BUTTON: 'ng-clear-button__button--focused'
     });
@@ -25,21 +30,28 @@
 
   angular
     .module('ngClearButton.controllers', [])
-    .controller('ClearButtonController', ['$scope', 'ClearButtonClassNames',
-      function($scope, ClearButtonClassNames) {
+    .controller('ClearButtonController', [
+      '$scope', '$timeout', 'ClearButtonOptions', 'ClearButtonDefaults', 'ClearButtonClassNames',
+      function($scope, $timeout, ClearButtonOptions, ClearButtonDefaults, ClearButtonClassNames) {
+        $scope.inputBlurTimer = null;
 
-        $scope.onButtonClick = function(model, input) {
-          $scope[model] = '';
-          $scope.$apply();
+        $scope.onButtonClick = function(button, model, input) {
+          if (ClearButtonOptions.isVisible || button.hasClass(ClearButtonClassNames.FOCUSED_INPUT_BUTTON)) {
+            $scope[model] = '';
+            $scope.$apply();
+          }
           input[0].focus();
         };
 
         $scope.onInputFocus = function(button) {
+          $timeout.cancel($scope.inputBlurTimer);
           button.addClass(ClearButtonClassNames.FOCUSED_INPUT_BUTTON);
         };
 
         $scope.onInputBlur = function(button) {
-          button.removeClass(ClearButtonClassNames.FOCUSED_INPUT_BUTTON);
+          $scope.inputBlurTimer = $timeout(function() {
+            button.removeClass(ClearButtonClassNames.FOCUSED_INPUT_BUTTON);
+          }, ClearButtonDefaults.BUTTON_HIDE_TIMEOUT);
         };
       }
     ]);
@@ -54,8 +66,9 @@
       'ngClearButton.constants',
       'ngClearButton.controllers'
     ])
-    .directive('withClearButton', ['ClearButtonDefaults', 'ClearButtonClassNames',
-      function(ClearButtonDefaults, ClearButtonClassNames) {
+    .directive('withClearButton', [
+      'ClearButtonOptions', 'ClearButtonClassNames',
+      function(ClearButtonOptions, ClearButtonClassNames) {
         return {
           restrict: 'A',
           controller: 'ClearButtonController',
@@ -64,13 +77,18 @@
               model = attrs.ngModel;
 
             try {
-              button = angular.element(attrs.clearButtonHTML || ClearButtonDefaults.BUTTON);
+              button = angular.element(attrs.clearButtonHtml || ClearButtonOptions.buttonHtml);
             } catch (err) {
               throw '[ng-clear-button]: Please provide a valid HTML element for clear button!';
             }
 
+            if (attrs.hasOwnProperty('clearButtonIsVisible')) {
+              ClearButtonOptions.isVisible = true;
+              button.addClass(ClearButtonClassNames.VISIBLE_BUTTON);
+            }
+
             function onButtonClick() {
-              scope.onButtonClick(model, element);
+              scope.onButtonClick(button, model, element);
             }
 
             function onInputFocus() {

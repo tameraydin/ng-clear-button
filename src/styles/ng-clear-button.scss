@@ -16,16 +16,18 @@ $module: 'ng-clear-button';
   }
 
   &__button {
-    visibility: hidden;
+    opacity: 0.01;
     position: absolute;
     right: 4px;
     top: 0;
-    cursor: default;
+    cursor: text;
 
     &--filled {
 
-      &.#{$module}__button--focused {
-        visibility: visible;
+      &.#{$module}__button--focused,
+      &.#{$module}__button--visible {
+        cursor: default;
+        opacity: 0.99;
       }
     }
   }

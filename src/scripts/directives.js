@@ -6,8 +6,9 @@
       'ngClearButton.constants',
       'ngClearButton.controllers'
     ])
-    .directive('withClearButton', ['ClearButtonDefaults', 'ClearButtonClassNames',
-      function(ClearButtonDefaults, ClearButtonClassNames) {
+    .directive('withClearButton', [
+      'ClearButtonOptions', 'ClearButtonClassNames',
+      function(ClearButtonOptions, ClearButtonClassNames) {
         return {
           restrict: 'A',
           controller: 'ClearButtonController',
@@ -16,13 +17,18 @@
               model = attrs.ngModel;
 
             try {
-              button = angular.element(attrs.clearButtonHTML || ClearButtonDefaults.BUTTON);
+              button = angular.element(attrs.clearButtonHtml || ClearButtonOptions.buttonHtml);
             } catch (err) {
               throw '[ng-clear-button]: Please provide a valid HTML element for clear button!';
             }
 
+            if (attrs.hasOwnProperty('clearButtonIsVisible')) {
+              ClearButtonOptions.isVisible = true;
+              button.addClass(ClearButtonClassNames.VISIBLE_BUTTON);
+            }
+
             function onButtonClick() {
-              scope.onButtonClick(model, element);
+              scope.onButtonClick(button, model, element);
             }
 
             function onInputFocus() {

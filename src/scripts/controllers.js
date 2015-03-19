@@ -3,21 +3,28 @@
 
   angular
     .module('ngClearButton.controllers', [])
-    .controller('ClearButtonController', ['$scope', 'ClearButtonClassNames',
-      function($scope, ClearButtonClassNames) {
+    .controller('ClearButtonController', [
+      '$scope', '$timeout', 'ClearButtonOptions', 'ClearButtonDefaults', 'ClearButtonClassNames',
+      function($scope, $timeout, ClearButtonOptions, ClearButtonDefaults, ClearButtonClassNames) {
+        $scope.inputBlurTimer = null;
 
-        $scope.onButtonClick = function(model, input) {
-          $scope[model] = '';
-          $scope.$apply();
+        $scope.onButtonClick = function(button, model, input) {
+          if (ClearButtonOptions.isVisible || button.hasClass(ClearButtonClassNames.FOCUSED_INPUT_BUTTON)) {
+            $scope[model] = '';
+            $scope.$apply();
+          }
           input[0].focus();
         };
 
         $scope.onInputFocus = function(button) {
+          $timeout.cancel($scope.inputBlurTimer);
           button.addClass(ClearButtonClassNames.FOCUSED_INPUT_BUTTON);
         };
 
         $scope.onInputBlur = function(button) {
-          button.removeClass(ClearButtonClassNames.FOCUSED_INPUT_BUTTON);
+          $scope.inputBlurTimer = $timeout(function() {
+            button.removeClass(ClearButtonClassNames.FOCUSED_INPUT_BUTTON);
+          }, ClearButtonDefaults.BUTTON_HIDE_TIMEOUT);
         };
       }
     ]);

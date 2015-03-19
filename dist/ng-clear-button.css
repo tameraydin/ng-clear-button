@@ -10,10 +10,11 @@
 .ng-clear-button__input[type="search"]::-webkit-search-decoration, .ng-clear-button__input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none; }
 .ng-clear-button__button {
-  visibility: hidden;
+  opacity: 0.01;
   position: absolute;
   right: 4px;
   top: 0;
-  cursor: default; }
-  .ng-clear-button__button--filled.ng-clear-button__button--focused {
-    visibility: visible; }
+  cursor: text; }
+  .ng-clear-button__button--filled.ng-clear-button__button--focused, .ng-clear-button__button--filled.ng-clear-button__button--visible {
+    cursor: default;
+    opacity: 0.99; }

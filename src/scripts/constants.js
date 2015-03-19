@@ -3,12 +3,17 @@
 
   angular
     .module('ngClearButton.constants', [])
+    .value('ClearButtonOptions', {
+      isVisible: false,
+      buttonHtml: '<span>&#10006;</span>'
+    })
     .constant('ClearButtonDefaults', {
-      BUTTON: '<span>&#10006;</span>'
+      BUTTON_HIDE_TIMEOUT: 100
     })
     .constant('ClearButtonClassNames', {
       INPUT: 'ng-clear-button__input',
       BUTTON: 'ng-clear-button__button',
+      VISIBLE_BUTTON: 'ng-clear-button__button--visible',
       FILLED_INPUT_BUTTON: 'ng-clear-button__button--filled',
       FOCUSED_INPUT_BUTTON: 'ng-clear-button__button--focused'
     });
