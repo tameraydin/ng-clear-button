@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('ngClearButton.constants', [])
+    .module('angularClearButton.constants', [])
     .value('ClearButtonOptions', {
       isVisible: false,
       buttonHtml: '<span>&#10006;</span>'

@@ -2,7 +2,7 @@
 
 angular
   .module('demoApp', [
-    'ngClearButton'
+    'angularClearButton'
   ])
   .controller('demoMainController', function($scope) {
     $scope.anInputModel = 'focus on me...';

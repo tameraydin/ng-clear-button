@@ -2,7 +2,7 @@
 
 describe('ngClearButton', function() {
 
-  beforeEach(module('ngClearButton'));
+  beforeEach(module('angularClearButton'));
 
   var compiler,
     scope,

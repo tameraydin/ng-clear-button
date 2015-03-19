@@ -2,10 +2,10 @@
   'use strict';
 
   angular
-    .module('ngClearButton', [
-      'ngClearButton.constants',
-      'ngClearButton.controllers',
-      'ngClearButton.directives'
+    .module('angularClearButton', [
+      'angularClearButton.constants',
+      'angularClearButton.controllers',
+      'angularClearButton.directives'
     ]);
 
 })(window, window.angular);

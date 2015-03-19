@@ -2,9 +2,9 @@
   'use strict';
 
   angular
-    .module('ngClearButton.directives', [
-      'ngClearButton.constants',
-      'ngClearButton.controllers'
+    .module('angularClearButton.directives', [
+      'angularClearButton.constants',
+      'angularClearButton.controllers'
     ])
     .directive('withClearButton', [
       'ClearButtonOptions', 'ClearButtonClassNames',

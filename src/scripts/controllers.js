@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('ngClearButton.controllers', [])
+    .module('angularClearButton.controllers', [])
     .controller('ClearButtonController', [
       '$scope', '$timeout', 'ClearButtonOptions', 'ClearButtonDefaults', 'ClearButtonClassNames',
       function($scope, $timeout, ClearButtonOptions, ClearButtonDefaults, ClearButtonClassNames) {
