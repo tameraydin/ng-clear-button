@@ -6,6 +6,10 @@ $module: 'ng-clear-button';
     -webkit-appearance: textfield;
   }
 
+  &__input::-ms-clear {
+    display: none;
+  }
+
   &__input[type="search"]::-webkit-search-decoration,
   &__input[type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;

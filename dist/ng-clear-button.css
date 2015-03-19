@@ -5,6 +5,8 @@
  */
 .ng-clear-button__input[type="search"] {
   -webkit-appearance: textfield; }
+.ng-clear-button__input::-ms-clear {
+  display: none; }
 .ng-clear-button__input[type="search"]::-webkit-search-decoration, .ng-clear-button__input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none; }
 .ng-clear-button__button {
