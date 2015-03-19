@@ -1,6 +1,6 @@
 /**
- * ng-clear-button v0.1.0 (http://tamerayd.in/ng-clear-button)
+ * ng-clear-button v0.2.0 (http://tamerayd.in/ng-clear-button)
  * Copyright 2015 Tamer Aydin (http://tamerayd.in)
  * Licensed under MIT
  */
-.ng-clear-button__input[type=search]{-webkit-appearance:textfield}.ng-clear-button__input[type=search]::-webkit-search-cancel-button,.ng-clear-button__input[type=search]::-webkit-search-decoration{-webkit-appearance:none}.ng-clear-button__button{cursor:default}
+.ng-clear-button__input[type=search]{-webkit-appearance:textfield}.ng-clear-button__input::-ms-clear{display:none}.ng-clear-button__input[type=search]::-webkit-search-cancel-button,.ng-clear-button__input[type=search]::-webkit-search-decoration{-webkit-appearance:none}.ng-clear-button__button{visibility:hidden;position:absolute;right:4px;top:0;cursor:default}.ng-clear-button__button--filled.ng-clear-button__button--focused{visibility:visible}
