@@ -1,5 +1,5 @@
 /**
- * ng-clear-button v0.1.0 (http://tamerayd.in/ng-clear-button)
+ * ng-clear-button v0.2.0 (http://tamerayd.in/ng-clear-button)
  * Copyright 2015 Tamer Aydin (http://tamerayd.in)
  * Licensed under MIT
  */
