@@ -30,10 +30,15 @@
     .controller('ClearButtonController', [
       '$scope', '$timeout', 'ClearButtonOptions', 'ClearButtonClassNames',
       function($scope, $timeout, ClearButtonOptions, ClearButtonClassNames) {
-        $scope.inputBlurTimer = null;
+        $scope.isButtonVisible = false;
 
-        $scope.onButtonClick = function(button, model, input) {
-          if (ClearButtonOptions.isVisible || button.hasClass(ClearButtonClassNames.FOCUSED_INPUT_BUTTON)) {
+        $scope.onMouseDown = function(button) {
+            $scope.isButtonVisible =
+              ClearButtonOptions.isVisible || button.hasClass(ClearButtonClassNames.FOCUSED_INPUT_BUTTON);
+        };
+
+        $scope.onMouseUp = function(model, input) {
+          if ($scope.isButtonVisible) {
             $scope[model] = '';
             $scope.$apply();
           }
@@ -83,8 +88,12 @@
               button.addClass(ClearButtonClassNames.VISIBLE_BUTTON);
             }
 
-            function onButtonClick() {
-              scope.onButtonClick(button, model, element);
+            function onMouseDown() {
+              scope.onMouseDown(button);
+            }
+
+            function onMouseUp() {
+              scope.onMouseUp(model, element);
             }
 
             function onInputFocus() {
@@ -99,7 +108,8 @@
             element.addClass(ClearButtonClassNames.INPUT);
             element.after(button);
 
-            button.bind('mousedown', onButtonClick);
+            button.bind('mousedown', onMouseDown);
+            button.bind('mouseup', onMouseUp);
             element.bind('focus', onInputFocus);
             element.bind('blur', onInputBlur);
 
@@ -110,7 +120,8 @@
             });
 
             scope.$on('$destroy', function() {
-              button.unbind('mousedown', onButtonClick);
+              button.unbind('mousedown', onMouseDown);
+              button.unbind('mouseup', onMouseUp);
               element.unbind('focus', onInputFocus);
               element.unbind('blur', onInputBlur);
               unwatch();

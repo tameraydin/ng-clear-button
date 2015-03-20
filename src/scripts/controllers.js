@@ -6,10 +6,15 @@
     .controller('ClearButtonController', [
       '$scope', '$timeout', 'ClearButtonOptions', 'ClearButtonClassNames',
       function($scope, $timeout, ClearButtonOptions, ClearButtonClassNames) {
-        $scope.inputBlurTimer = null;
+        $scope.isButtonVisible = false;
 
-        $scope.onButtonClick = function(button, model, input) {
-          if (ClearButtonOptions.isVisible || button.hasClass(ClearButtonClassNames.FOCUSED_INPUT_BUTTON)) {
+        $scope.onMouseDown = function(button) {
+            $scope.isButtonVisible =
+              ClearButtonOptions.isVisible || button.hasClass(ClearButtonClassNames.FOCUSED_INPUT_BUTTON);
+        };
+
+        $scope.onMouseUp = function(model, input) {
+          if ($scope.isButtonVisible) {
             $scope[model] = '';
             $scope.$apply();
           }

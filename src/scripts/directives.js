@@ -27,8 +27,12 @@
               button.addClass(ClearButtonClassNames.VISIBLE_BUTTON);
             }
 
-            function onButtonClick() {
-              scope.onButtonClick(button, model, element);
+            function onMouseDown() {
+              scope.onMouseDown(button);
+            }
+
+            function onMouseUp() {
+              scope.onMouseUp(model, element);
             }
 
             function onInputFocus() {
@@ -43,7 +47,8 @@
             element.addClass(ClearButtonClassNames.INPUT);
             element.after(button);
 
-            button.bind('mousedown', onButtonClick);
+            button.bind('mousedown', onMouseDown);
+            button.bind('mouseup', onMouseUp);
             element.bind('focus', onInputFocus);
             element.bind('blur', onInputBlur);
 
@@ -54,7 +59,8 @@
             });
 
             scope.$on('$destroy', function() {
-              button.unbind('mousedown', onButtonClick);
+              button.unbind('mousedown', onMouseDown);
+              button.unbind('mouseup', onMouseUp);
               element.unbind('focus', onInputFocus);
               element.unbind('blur', onInputBlur);
               unwatch();
