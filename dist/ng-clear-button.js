@@ -12,9 +12,6 @@
       isVisible: false,
       buttonHtml: '<span>&#10006;</span>'
     })
-    .constant('ClearButtonDefaults', {
-      BUTTON_HIDE_TIMEOUT: 100
-    })
     .constant('ClearButtonClassNames', {
       INPUT: 'ng-clear-button__input',
       BUTTON: 'ng-clear-button__button',
@@ -31,8 +28,8 @@
   angular
     .module('angularClearButton.controllers', [])
     .controller('ClearButtonController', [
-      '$scope', '$timeout', 'ClearButtonOptions', 'ClearButtonDefaults', 'ClearButtonClassNames',
-      function($scope, $timeout, ClearButtonOptions, ClearButtonDefaults, ClearButtonClassNames) {
+      '$scope', '$timeout', 'ClearButtonOptions', 'ClearButtonClassNames',
+      function($scope, $timeout, ClearButtonOptions, ClearButtonClassNames) {
         $scope.inputBlurTimer = null;
 
         $scope.onButtonClick = function(button, model, input) {
@@ -40,18 +37,17 @@
             $scope[model] = '';
             $scope.$apply();
           }
-          input[0].focus();
+          $timeout(function() {
+            input[0].focus();
+          }, 0);
         };
 
         $scope.onInputFocus = function(button) {
-          $timeout.cancel($scope.inputBlurTimer);
           button.addClass(ClearButtonClassNames.FOCUSED_INPUT_BUTTON);
         };
 
         $scope.onInputBlur = function(button) {
-          $scope.inputBlurTimer = $timeout(function() {
-            button.removeClass(ClearButtonClassNames.FOCUSED_INPUT_BUTTON);
-          }, ClearButtonDefaults.BUTTON_HIDE_TIMEOUT);
+          button.removeClass(ClearButtonClassNames.FOCUSED_INPUT_BUTTON);
         };
       }
     ]);
@@ -103,7 +99,7 @@
             element.addClass(ClearButtonClassNames.INPUT);
             element.after(button);
 
-            button.bind('click', onButtonClick);
+            button.bind('mousedown', onButtonClick);
             element.bind('focus', onInputFocus);
             element.bind('blur', onInputBlur);
 
@@ -114,7 +110,7 @@
             });
 
             scope.$on('$destroy', function() {
-              button.unbind('click', onButtonClick);
+              button.unbind('mousedown', onButtonClick);
               element.unbind('focus', onInputFocus);
               element.unbind('blur', onInputBlur);
               unwatch();

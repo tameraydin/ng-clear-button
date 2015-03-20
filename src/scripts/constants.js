@@ -7,9 +7,6 @@
       isVisible: false,
       buttonHtml: '<span>&#10006;</span>'
     })
-    .constant('ClearButtonDefaults', {
-      BUTTON_HIDE_TIMEOUT: 100
-    })
     .constant('ClearButtonClassNames', {
       INPUT: 'ng-clear-button__input',
       BUTTON: 'ng-clear-button__button',

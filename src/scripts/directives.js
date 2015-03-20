@@ -43,7 +43,7 @@
             element.addClass(ClearButtonClassNames.INPUT);
             element.after(button);
 
-            button.bind('click', onButtonClick);
+            button.bind('mousedown', onButtonClick);
             element.bind('focus', onInputFocus);
             element.bind('blur', onInputBlur);
 
@@ -54,7 +54,7 @@
             });
 
             scope.$on('$destroy', function() {
-              button.unbind('click', onButtonClick);
+              button.unbind('mousedown', onButtonClick);
               element.unbind('focus', onInputFocus);
               element.unbind('blur', onInputBlur);
               unwatch();

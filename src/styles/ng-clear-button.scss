@@ -21,6 +21,10 @@ $module: 'ng-clear-button';
     right: 4px;
     top: 0;
     cursor: text;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
     &--filled {
 

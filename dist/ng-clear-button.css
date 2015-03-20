@@ -14,7 +14,11 @@
   position: absolute;
   right: 4px;
   top: 0;
-  cursor: text; }
+  cursor: text;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
   .ng-clear-button__button--filled.ng-clear-button__button--focused, .ng-clear-button__button--filled.ng-clear-button__button--visible {
     cursor: default;
     opacity: 0.99; }
