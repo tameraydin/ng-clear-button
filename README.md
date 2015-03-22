@@ -1,4 +1,4 @@
-# ng-clear-button [![Build Status](http://img.shields.io/travis/tameraydin/ng-clear-button/master.svg?style=flat-square)](https://travis-ci.org/tameraydin/ng-clear-button) [![Code Climate](http://img.shields.io/codeclimate/github/tameraydin/ng-clear-button.svg?style=flat-square)](https://codeclimate.com/github/tameraydin/ng-clear-button/dist/ng-clear-button.js)
+# ng-clear-button [![Build Status](http://img.shields.io/travis/tameraydin/ng-clear-button/master.svg?style=flat-square)](https://travis-ci.org/tameraydin/ng-clear-button) [![Code Climate](http://img.shields.io/codeclimate/github/tameraydin/ng-clear-button.svg?style=flat-square)](https://codeclimate.com/github/tameraydin/ng-clear-button/dist/ng-clear-button.js) [![Coverage Status](https://img.shields.io/coveralls/tameraydin/ng-clear-button/master.svg?style=flat-square)](https://coveralls.io/r/tameraydin/ng-clear-button?branch=master)
 
 [Demo](http://tamerayd.in/ng-clear-button/)
 
@@ -44,3 +44,7 @@ Place ``with-clear-button`` attribute into your HTML input element:
 ## License
 
 MIT [http://tameraydin.mit-license.org/](http://tameraydin.mit-license.org/)
+
+## TODO
+
+- Add more unit tests
