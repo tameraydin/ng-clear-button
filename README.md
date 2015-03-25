@@ -15,7 +15,7 @@ Include main files:
 <script src="bower_components/ng-clear-button/dist/ng-clear-button.min.js"></script>
 ```
 
-Include ``ngClearButton`` module as a dependency into your app:
+Include ``angularClearButton`` module as a dependency into your app:
 ```javascript
 angular
   .module('yourApp', [
